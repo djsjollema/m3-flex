@@ -22,9 +22,11 @@ public class FromAtoB : MonoBehaviour
         if (gotoB)
         {
             differenceVector = B.transform.position - transform.position;
+            transform.LookAt(A.transform.position);
         } else
         {
             differenceVector = A.transform.position - transform.position;
+            transform.LookAt(B.transform.position);
         }
         
         distance = differenceVector.magnitude;
