@@ -6,28 +6,30 @@ using UnityEngine.Events;
 public class Droplet : MonoBehaviour
 {
     public float ymin;
-    public UnityEvent myEvent;
+    public UnityEvent myEvent; 
     
 
-    Vector3 velocity = Vector3.zero;
-    float speed = -1f;
+    float speed = 2f;
+    Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
     {
-        velocity = new Vector3(0, speed, 0);
+      
+        velocity = Vector3.down * speed;
         if(myEvent == null) myEvent = new UnityEvent();
-        myEvent.AddListener(drop);
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        //velocity += acceleration * Time.deltaTime;
         transform.position += velocity * Time.deltaTime;
         if(transform.position.y < ymin)
         {
             Destroy(this.gameObject);
+            myEvent.Invoke();
         }
     }
 
@@ -37,7 +39,7 @@ public class Droplet : MonoBehaviour
         myEvent.Invoke();
     }
 
-    void drop()
+    public void drop()
     {
         Debug.Log("drop");
     }
