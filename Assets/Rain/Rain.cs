@@ -7,22 +7,22 @@ public class Rain : MonoBehaviour
 {
 
     [SerializeField] Droplet droplet;
-    [SerializeField] GameObject water;
 
+    int score = 0;
     Vector2 dimMin;
     Vector2 dimMax;
     float width;
-    float waterHeight = 0.1f;
 
-
+    private void Awake()
+    {
+        score = 0;
+    }
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
         dimMin = Camera.main.ScreenToWorldPoint(Vector2.zero);
         dimMax = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        float width = dimMax.x - dimMin.x;
-        water.transform.localScale = new Vector3(width, waterHeight, 0);
-        water.transform.position = new Vector3(0,dimMin.y + waterHeight, 0);
     }
 
     // Update is called once per frame
@@ -39,9 +39,7 @@ public class Rain : MonoBehaviour
 
     public void Grow()
     {
-        waterHeight += 0.1f;
-        water.transform.localScale +=  new Vector3(0, 0.1f, 0);
-        water.transform.position = new Vector3(0, 0.1f, 0);
-        Debug.Log(water.transform.localScale += new Vector3(0, 0.1f, 0));
+        score++;
+        Debug.Log(score);
     }
 }

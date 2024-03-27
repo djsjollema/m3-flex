@@ -39,9 +39,4 @@ public class Droplet : MonoBehaviour
         myEvent.Invoke();
     }
 
-    public void drop()
-    {
-        Debug.Log("drop");
-    }
-
 }

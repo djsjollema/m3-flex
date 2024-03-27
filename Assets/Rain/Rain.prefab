@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6681825524449945341}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.660005, y: -5.280412, z: 0.5725809}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droplet: {fileID: 3525797734933034525, guid: e6dcafa2d505a4941b296aa6b7349952, type: 3}
-  water: {fileID: 466017696525556250, guid: e94f882e8e80a4245b2c37685f718875, type: 3}
+  water: {fileID: 0}
