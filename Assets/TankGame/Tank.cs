@@ -11,6 +11,8 @@ public class Tank : MonoBehaviour
     Vector2 maxBorder;
     Vector2 minBorder;
 
+    [SerializeField] float angle = 0;
+
 
     void Start()
     {
@@ -25,8 +27,9 @@ public class Tank : MonoBehaviour
 
     void Update()
     {
-        velocity = direction * speed;
+        velocity = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad),Mathf.Sin(angle*Mathf.Deg2Rad),0) * speed;
         transform.position += velocity * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0,0,angle);
 
         if(transform.position.x > maxBorder.x)
         {
