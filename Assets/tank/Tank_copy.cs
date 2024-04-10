@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tank : MonoBehaviour
+public class Tank_copy : MonoBehaviour
 {
     Vector3 velocity;
     Vector3 direction;

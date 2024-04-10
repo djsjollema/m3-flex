@@ -4,27 +4,52 @@ using UnityEngine;
 
 public class Tank : MonoBehaviour
 {
-    [SerializeField] Animator animator;
-    float animationSpeed = 0f;
-    float bearing = 0;
-    Vector3 direction;
-    float speed = 0f;
     Vector3 velocity;
-    [SerializeField] float axis;
-    // Start is called before the first frame update
+    Vector3 direction;
+    float speed = 1;
+    [SerializeField] float bearing = 0f;
+
+    Vector2 minBorders;
+    Vector2 maxBorders;
+
     void Start()
     {
-
+        minBorders = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
+        maxBorders = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        //Debug.Log(minBorders + " " + maxBorders); 
+        //
     }
 
-    // Update is called once per frame
     void Update()
     {
-        direction = new Vector3(Mathf.Sin(bearing * Mathf.Deg2Rad), Mathf.Cos(bearing * Mathf.Deg2Rad), 0);
-        speed += Input.GetAxis("Vertical") * 0.1f;
-        bearing += Input.GetAxis("Horizontal");
-        animator.speed = speed;
-        transform.position += direction * speed * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(0, 0, -bearing);
+        direction = new Vector3(Mathf.Cos(bearing * Mathf.Deg2Rad), Mathf.Sin(bearing * Mathf.Deg2Rad), 0);
+
+        velocity = direction * speed;
+        transform.position += velocity * Time.deltaTime;
+
+        transform.rotation = Quaternion.Euler(0, 0, bearing);
+
+        if (transform.position.y > maxBorders.y)
+        {
+            transform.position = new Vector3(transform.position.x, minBorders.y, 0);
+        }
+
+        if (transform.position.y < minBorders.y)
+        {
+            transform.position = new Vector3(transform.position.x, maxBorders.y, 0);
+        }
+
+        if (transform.position.x > maxBorders.x)
+        {
+            transform.position = new Vector3(minBorders.x, transform.position.y, 0);
+        }
+
+        if (transform.position.x < minBorders.x)
+        {
+            transform.position = new Vector3(maxBorders.x, transform.position.y, 0);
+        }
+
+
+
     }
 }

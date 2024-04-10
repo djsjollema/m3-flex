@@ -1267,7 +1267,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cd14a4a8802cc8b4b8eaabe13a435757, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1303678560}
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cd14a4a8802cc8b4b8eaabe13a435757, type: 3}
 --- !u!1 &638881362
 GameObject:
@@ -1763,7 +1763,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1303678562}
   - component: {fileID: 1303678561}
-  - component: {fileID: 1303678560}
   m_Layer: 0
   m_Name: Ch46_nonPBR (2)
   m_TagString: Untagged
@@ -1771,25 +1770,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1303678560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303678557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 727b1b9e5ab11d84fa9480b2c8082d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  A: {fileID: 1318929030}
-  B: {fileID: 1743579731}
-  differenceVector: {x: 0, y: 0, z: 0}
-  distance: 0
-  direction: {x: 0, y: 0, z: 0}
-  speed: 2
-  gotoB: 1
 --- !u!95 &1303678561
 Animator:
   serializedVersion: 5
